@@ -1,0 +1,73 @@
+@mixin d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin m-block {
+  display: block !important;
+  .text-center {
+    text-align: center;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+}
+@mixin hoverAnimation {
+  -webkit-transition: all 0.5s !important;
+  transition: all 0.5s !important;
+}
+
+@mixin hoverSlideUp {
+  &:hover {
+    -webkit-transform: translateY(-5px) !important;
+    transform: translateY(-5px) !important;
+  }
+}
+@mixin boxshadow {
+  -webkit-box-shadow: 0 0 10px rgba(165, 165, 165, 0.2);
+  -ms-box-shadow: 0 0 10px rgba(165, 165, 165, 0.2);
+  -moz-box-shadow: 0 0 10px rgba(165, 165, 165, 0.2);
+  box-shadow: 0 0 10px rgba(165, 165, 165, 0.2);
+  margin: 0 0 30px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+@mixin hoverFlip {
+  -webkit-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+}
+
+@mixin hoverRedSlide {
+  z-index: 1;
+  &:hover {
+    color: #ffffff;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: 10px;
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      right bottom,
+      from(#00ae99),
+      to(#00ae99)
+    );
+    background-image: linear-gradient(to bottom right, #00ae99, #00ae99);
+    z-index: -1;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  &:hover::after {
+    left: 0;
+    right: auto;
+    width: 100%;
+    border-radius: 10px;
+  }
+}
